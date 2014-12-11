@@ -10,8 +10,8 @@ function Start ()
    		transform.GetChild(i).gameObject.SetActive(false);
    		gunLocks.push(true);
    	}
-    print('start');
-    print(MainScript.activeGun);
+    //print('start');
+    //print(MainScript.activeGun);
     if (MainScript.activeGun != -1) SelectWeapon(MainScript.activeGun);
 }
  

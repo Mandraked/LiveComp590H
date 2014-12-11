@@ -14,6 +14,8 @@ function OnTriggerEnter () {
 	PlayerGUI.wearingSpaceSuit = true;
 	glove.gameObject.SetActive(true);
 	spacesuit.gameObject.SetActive(false);
+	//var wall = GameObject.FindWithTag('BlockWall');
+	//if (wall != null) wall.SetActive(false);
 }
 
 function Update () {

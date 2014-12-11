@@ -5,13 +5,16 @@ function Start () {
 }
 
 function OnTriggerEnter (other : Collider) {
-	print('collide1');
+	//print('collide1');
 	if (other.tag == 'Player')
 	{
-		print('player');
+		//print('player');
 		//MainScript.allowScene2 = false;
 		MainScript.allowScene3 = true;
 		MainScript.allowScene4 = true;
+		print('trigger ' + MainScript.sceneProgression);
+		if (MainScript.sceneProgression == 2) MainScript.sceneProgression = 4;
+		if (MainScript.sceneProgression == 7) MainScript.sceneProgression = 5;
 
 		switch (MainScript.sceneProgression)
 		{

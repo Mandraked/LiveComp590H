@@ -3,6 +3,8 @@
 public var maxHealth : float = 100.0;
 public var maxOxygen : int = 100;
 public var healTime : float = 5.0;
+public var tickTime : float = 0.1;
+public var healAmount : int = 1;
 
 public var chokingDamage : int = 10;
 public var passiveOxygenDelta : int = 1;
@@ -10,6 +12,7 @@ public var passiveOxygenDelta : int = 1;
 public var updateTime : float = 2.0;
 
 private var timer : float = 0.0;
+private var tickTimer : float = 0.0;
 private var timerHealth : float = 0.0;
 private var health : float;
 private var oxygen : int;
@@ -18,14 +21,18 @@ private var choking : boolean;
 
 function Awake() {
 	timer = 0.0;
+	tickTimer = 0.0;
 	health = MainScript.playerHealth;
-	print('awake ' + health);
+	//print('awake ' + health);
 	oxygen = maxOxygen;
 	alive = true;
 	choking = false;
+
+	MainScript.checkTesting();
 }
 
 function Update() {
+	tickTimer += Time.deltaTime;
 	timerHealth += Time.deltaTime;
 	timer += Time.deltaTime;
 	if (timer >= updateTime) {
@@ -40,13 +47,17 @@ function Update() {
 			TakeDamage(chokingDamage);
 		}
 	}
-	if (timerHealth >= healTime) TakeDamage(-0.1);
+	if (timerHealth >= healTime && tickTimer > tickTime && health < 100.0) TakeDamage(-healAmount);
 }
 
 function TakeDamage(damage : float) {
+	print('taking damage: ' + damage);
 	if (damage > 0) timerHealth = 0.0;
+	tickTimer = 0.0;
 	health -= damage;
 	MainScript.playerHealth -= damage;
+	if (MainScript.playerHealth > 100) MainScript.playerHealth = 100;
+	print('main health: ' + MainScript.playerHealth);
 
 	if (health < 0) {
 		health = 0;

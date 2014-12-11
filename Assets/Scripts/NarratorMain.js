@@ -66,8 +66,12 @@ function OnGUI() {
 	}
 }
 
-function OnTriggerEnter(other : Collider) {
+function OnTriggerStay(other : Collider) {
+
 	if ((retriggerable || !triggered) && other.gameObject == player && (MainScript.sceneProgression == sceneProgression || sceneProgression == 0)) {
+		if (sceneProgression == 2) MainScript.sceneProgression = 4;
+		if (sceneProgression == 7) MainScript.sceneProgression = 5;
+		print(MainScript.sceneProgression + ', ' + sceneProgression);
 		triggered = true;
 		scriptAudio.Play();
 		timer = 0.0;

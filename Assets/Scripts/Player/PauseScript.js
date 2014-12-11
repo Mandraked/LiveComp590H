@@ -35,11 +35,13 @@ function Start () {
 	mouseLook = GameObject.FindWithTag("Player").GetComponent(MouseLook);
 
 	MainMenu = Rect(Screen.width/2 - width/2, Screen.height/2 - height/2, width, height);
-	print(width + ' ' + height);
-	print(Screen.width + ' ' + Screen.height);
+	//print(width + ' ' + height);
+	//print(Screen.width + ' ' + Screen.height);
 }
 
 function Update () {
+	// print('scene ' + MainScript.currentScene);
+	// print('progress ' + MainScript.sceneProgression);
 	//print('work');
 	if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName != 'title-screen' && Application.loadedLevelName != 'win-screen' && Application.loadedLevelName != 'lose-screen')
 	{

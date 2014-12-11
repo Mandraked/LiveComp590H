@@ -4,7 +4,7 @@ static var isTesting : boolean = false;
 
 static var currentScene : int = 2;
 static var activeGun : int = -1;
-static var playerHealth : int = 100;
+static var playerHealth : float = 100;
 static var guns = Array();
 guns.Push(false);
 guns.Push(false);
@@ -16,7 +16,7 @@ static var allowScene4 : boolean = true;
 static var currPos = Vector3(0,0,0);
 
 static var gameProgression : int = 3;
-static var sceneProgression : int = 6;
+static var sceneProgression : int = 3;
 
 static var killCount : int = 0;
 static var bossKillCount : int = 0;
@@ -28,6 +28,24 @@ static var isPause : boolean = false;
 
 function Start () {
 
+}
+
+static function checkTesting () {
+	if (isTesting)
+	{
+		PlayerGUI.wearingSpaceSuit = true;
+		GunMouseController.hasGun = true;
+		guns = [];
+		guns.Push(true);
+		guns.Push(true);
+		GunSelection.UnlockWeapons(0);
+		GunSelection.UnlockWeapons(1);
+
+		//Main testing variables
+		sceneProgression = 6;
+		currentScene = 4;
+		LoadScene.talkedToBoss = true;
+	}
 }
 
 function Awake() {

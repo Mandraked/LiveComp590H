@@ -77,6 +77,7 @@ function Update () {
 		}
 		if (loading) {
 			Screen.showCursor = false;
+			MainScript.ResetGame();
 			Application.LoadLevel(firstScene);
 		}
 	} 

@@ -11,10 +11,10 @@ private var levelToLoad : String;
 private var gameOver : boolean;
 
 function Awake() {
-	print('Scene ' + MainScript.sceneProgression);
+	//print('Scene ' + MainScript.sceneProgression);
 	if (MainScript.sceneProgression == 3)
 	{
-		var wall = GameObject.FindWithTag('BlockWall');
+		var wall = GameObject.FindWithTag('BlockWallMain');
 		var wallN = GameObject.FindWithTag('BlockWallNarrator');
 
 		if (wall != null && wallN != null)
@@ -24,6 +24,15 @@ function Awake() {
 		}
 
 	}
+	// if (MainScript.sceneProgression == 4)
+	// {
+	// 	var nObj = GameObject.FindWithTag('BlockWall');
+	// 	if (nObj != null)
+	// 	{
+	// 		nObj.SetActive(false);
+	// 	}
+	// }
+
 	if (MainScript.sceneProgression != 6)
 	{
 		var bosses = GameObject.FindGameObjectsWithTag('Boss');
@@ -71,27 +80,52 @@ function Update() {
 
 	switch(MainScript.sceneProgression)
 	{
+		case 2:
+			obj = GameObject.FindWithTag('BlockWall');
+			if (obj != null)
+			{
+				var script3 = obj.GetComponent(NarratorMain);
+				if (script3 != null)
+				{
+					if (script3.IsDone()) MainScript.sceneProgression = 4;
+				}
+			}
 		case 4: 
 			obj = GameObject.FindWithTag('NarratorDoor');
 			//print(obj);
 			if (obj != null)
 			{
 				var script = obj.GetComponent(NarratorMain);
-				print('here 4');
+				//print('here 4');
 				if (script.IsDone()) LoadScene.talkedToBoss = true;
+				if (script.IsDone() && GunMouseController.hasGun) MainScript.sceneProgression = 2;
 			}
 			break;
 		case 5: 
+			//print('5');
+			if (MainScript.guns[1]) MainScript.sceneProgression = 7;
 			break;
 		case 6:
 			obj = GameObject.FindWithTag('NarratorBoss');
 			if (obj != null)
 			{
-				print('here 5');
+				//print('here 5');
 				var script2 = obj.GetComponent(NarratorMain);
 				if (script2.IsDone()) Sight.SetHostile(true);
 			}
 			break;
+		case 7:
+			//print('7');
+			obj = GameObject.FindWithTag('BlockWall');
+			if (obj != null)
+			{
+				var script4 = obj.GetComponent(NarratorMain);
+				if (script4 != null)
+				{
+					//print('idk ' + script4.IsDone());
+					if (script4.IsDone()) MainScript.sceneProgression = 5;
+				}
+			}
 	}
 	
 }

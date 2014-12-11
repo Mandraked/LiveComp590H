@@ -1,8 +1,8 @@
 #pragma strict
 
-var scene2Pos = Vector3(230.25, 1.41, 78.79);
-var scene3Pos = Vector3(85.61, 1.41, 335.96);
-var scene4Pos = Vector3(435.24, 1.41, 331.30);
+var scene2Pos = Vector3(230.25, 3.41, 78.79);
+var scene3Pos = Vector3(85.61, 3.41, 335.96);
+var scene4Pos = Vector3(435.24, 3.41, 331.30);
 
 var currPos = Vector3(0,0,0);
 var currRot = Vector3(0,0,0);
@@ -18,6 +18,7 @@ function distance3D(vec1, vec2)
 
 function Start () {
 	Screen.showCursor = false;
+	print('switching to 1 from ' + MainScript.currentScene);
 	switch(MainScript.currentScene)
 	{
 		case 1:
@@ -61,7 +62,7 @@ function Start () {
 	}
 
 	MainScript.currentScene = 1;
-	Camera.main.enabled = true;
+	//Camera.main.enabled = true;
 }
 
 function Update () {
