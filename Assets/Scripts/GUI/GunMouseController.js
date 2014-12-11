@@ -4,7 +4,7 @@ public var texture : Texture2D;
 
 private var barrel : Transform;
 
-public static var hasGun : boolean = true;
+public static var hasGun : boolean = false;
 
 function Start () {
 	Screen.showCursor = false;

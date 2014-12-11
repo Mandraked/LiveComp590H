@@ -46,6 +46,10 @@ static function UnlockWeapons (index : int)
 {
 	gunLocks[index] = false;
 }
+static function RelockWeapons(index : int)
+{
+  gunLocks[index] = true;
+}
 
 function UnlockWeapon (index : int)
 {

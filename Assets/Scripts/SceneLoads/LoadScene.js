@@ -38,6 +38,8 @@ function OnTriggerEnter(other : Collider)
 				{
 					MainScript.currPos = GameObject.FindGameObjectWithTag('Player').transform.position;
 					MainScript.sceneProgression++;
+					MainScript.killCount = 0;
+					MainScript.bossKillCount = 0;
 					PlayerGUI.wearingSpaceSuit = true;
 					Camera.main.enabled = false;
 					Application.LoadLevel(scene);
@@ -62,6 +64,7 @@ function OnTriggerEnter(other : Collider)
 				if (MainScript.checkKills())
 				{
 					MainScript.killCount = 0;
+					MainScript.bossKillCount = 0;
 					PlayerGUI.wearingSpaceSuit = true;
 					Camera.main.enabled = false;
 					MainScript.allowScene3 = false;
@@ -71,9 +74,11 @@ function OnTriggerEnter(other : Collider)
 				break;
 			case 4:
 				if (MainScript.checkKills2()) talkedToBoss = true;
+				//else talkedToBoss = false;
 				print(MainScript.checkKills2() + ' ' + talkedToBoss);
 				if (!talkedToBoss) break;
 				talkedToBoss = false;
+				MainScript.killCount = 0;
 				MainScript.bossKillCount = 0;
 				//if (MainScript.sceneProgression == 6) break;
 				PlayerGUI.wearingSpaceSuit = true;

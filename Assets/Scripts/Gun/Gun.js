@@ -26,6 +26,7 @@ function Fire () {
 } 
 
 function Update () {
+  if (MainScript.isPause) return;
   timer += Time.deltaTime;
   if(timer >= rechargeTime && gameObject.activeInHierarchy){
   		// Fire if the left mouse button is clicked 

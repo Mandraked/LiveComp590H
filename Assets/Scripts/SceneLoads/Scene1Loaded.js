@@ -37,6 +37,7 @@ function Start () {
 				currPos = scene4Pos;
 				currRot = scene4Rot;
 			}
+			Sight.SetHostile(true);
 
 			GameObject.FindWithTag('Player').transform.position = currPos;
 			GameObject.FindWithTag('Player').transform.eulerAngles = currRot;

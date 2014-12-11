@@ -85,7 +85,7 @@ function Awake() {
     footstepOutsideAudio.clip = footstepOutsideClip;
     footstepOutsideAudio.loop = false;
     footstepOutsideAudio.playOnAwake = false;
-    footstepOutsideAudio.volume = 0.8;
+    footstepOutsideAudio.volume = 0.1;
     footstepOutsideAudio.dopplerLevel = 0.0;
     sources.Push(footstepOutsideAudio);
     

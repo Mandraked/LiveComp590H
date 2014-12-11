@@ -17,7 +17,9 @@ function Start () {
 }
 
 function Update () {
+	print('update');
 	if(Gun.activeSelf){
+		print('notActive');
 		if (MainScript.currentScene != 2)
 		{
 			if (!GunSelection.gunLocks[keyboardShortcut-1]) Gun.SetActive(false);

@@ -42,13 +42,14 @@ static function ResetGame () {
 	currentScene = 2;
 	activeGun = -1;
 	playerHealth = 100;
-	guns = Array();
+
+	guns.Clear();
 	guns.Push(false);
 	guns.Push(false);
 
 	allowScene2 = false;
-	allowScene3 = false;
-	allowScene4 = false;
+	allowScene3 = true;
+	allowScene4 = true;
 
 	currPos = Vector3(0,0,0);
 
@@ -61,6 +62,11 @@ static function ResetGame () {
 	Sight.SetHostile(false);
 	LoadScene.talkedToBoss = false;
 	GunMouseController.hasGun = false;
+	guns = Array();
+	guns.Push(false);
+	guns.Push(false);
+	GunSelection.RelockWeapons(0);
+	GunSelection.RelockWeapons(1);
 }
 
 static function Victory () {
@@ -78,12 +84,11 @@ static function GameOver () {
 }
 
 static function checkKills () {
-	return killCount == requiredKills;
+	return killCount >= requiredKills;
 }
 
 static function checkKills2 () {
-	print(killCount + ' ' + requiredKills2);
-	return killCount == requiredKills2;
+	return killCount >= requiredKills2;
 }
 
 static function checkKillsBoss () {
