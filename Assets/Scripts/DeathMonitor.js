@@ -31,6 +31,10 @@ function Awake() {
 		{
 			boss.SetActive(false);
 		}
+		var wallL = GameObject.FindWithTag('BlockWallLeft');
+		var wallR = GameObject.FindWithTag('BlockWallRight');
+		if (wallL != null) wallL.SetActive(false);
+		if (wallR != null) wallR.SetActive(false);
 	}
 	
 	player = GameObject.FindWithTag("Player").GetComponent(PlayerStatus);
@@ -69,6 +73,7 @@ function Update() {
 	{
 		case 4: 
 			obj = GameObject.FindWithTag('NarratorDoor');
+			//print(obj);
 			if (obj != null)
 			{
 				var script = obj.GetComponent(NarratorMain);

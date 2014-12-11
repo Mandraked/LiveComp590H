@@ -88,6 +88,7 @@ function Update () {
 function OnGUI() {
 	if(wearingSpaceSuit || MainScript.currentScene == 1){
 		//Health
+		//print('curhealth ' + curHealth);
 		var healthText : GUIContent = GUIContent("<color=white>Health: "+parseInt(curHealth)+"/"+maxHealth+"</color>");
 		if(curHealth > 0){
 			GUI.Label(new Rect(10, 10, healthBarLength, 25), GUIContent.none, foregroundStyle);

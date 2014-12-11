@@ -10,13 +10,13 @@ guns.Push(false);
 guns.Push(false);
 
 static var allowScene2 : boolean = false;
-static var allowScene3 : boolean = false;
-static var allowScene4 : boolean = false;
+static var allowScene3 : boolean = true;
+static var allowScene4 : boolean = true;
 
 static var currPos = Vector3(0,0,0);
 
 static var gameProgression : int = 3;
-static var sceneProgression : int = 3;
+static var sceneProgression : int = 6;
 
 static var killCount : int = 0;
 static var bossKillCount : int = 0;

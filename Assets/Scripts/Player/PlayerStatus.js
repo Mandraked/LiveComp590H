@@ -19,6 +19,7 @@ private var choking : boolean;
 function Awake() {
 	timer = 0.0;
 	health = MainScript.playerHealth;
+	print('awake ' + health);
 	oxygen = maxOxygen;
 	alive = true;
 	choking = false;

@@ -13,9 +13,11 @@ function Start ()
 
 function OnTriggerEnter(other : Collider)
 {
+	print(scene + ' ' + MainScript.allowScene3 + ' ' + MainScript.allowScene4);
 	if (other.tag == 'Player')
 	{
 		print(MainScript.currentScene);
+		if (scene == '') scene = 'Scene4';
 		switch (MainScript.currentScene)
 		{
 			case 1:
